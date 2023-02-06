@@ -1,0 +1,64 @@
+.header_container {
+  width: 100%;
+  background: #06122a;
+  box-shadow: rgb(1, 14, 26) 0px 20px 30px -10px !important;
+  height: 55px;
+  line-height: 55px;
+
+  .header_content {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      color: #cecaca;
+      @media screen and (max-width:480px){
+        font-size: 18px;
+      }
+    }
+
+    ul {
+      margin: 0;
+      display: flex;
+      .link_item {
+        text-decoration: none;
+        color: #cecaca;
+        font-size: 14px;
+        display: flex;
+
+
+        .link_icon {
+          margin-right: .2rem;
+          margin-top: .14rem;
+        }
+      }
+      a{
+        margin-right: .5rem;
+        position: relative;
+        .profile_picture{
+          width: 32px;
+          height:32px;
+          border-radius: 50%;
+          background-color: yellow;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(20%, -50%)
+        }
+      }
+      .home_links_item{
+        color: #cecaca;
+        font-size: 14px;
+      }
+      .hamburger{
+        font-size: 18px !important;
+        display: none;
+        @media screen and (max-width: 1024px) {
+          display: inline-block;
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}

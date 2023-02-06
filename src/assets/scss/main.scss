@@ -1,0 +1,64 @@
+@font-face {
+  font-family: "sf-light";   /*Can be any text*/
+  src: local("SFNSDisplay-Light"),
+  url("../../assets/fonts/SFNSDisplay-Light.otf") format("truetype");
+}
+
+.app_container {
+  /*  background-color: #344675;*/
+  min-height: 100vh;
+  font-family: sf-light !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.error_text {
+  line-height: 0;
+  font-size: 1px;
+  margin-bottom: 0;
+  color: red;
+  opacity: 0;
+  transition: .5s ease-in;
+}
+
+.error_visible {
+  font-size: 10px;
+  margin-bottom: 1rem;
+  opacity: 1;
+  transition: .5s ease-out;
+}
+
+
+button[disabled] {
+  background-color: gray !important;
+  cursor: not-allowed !important;
+}
+
+.flashMessage{
+width: 300px;
+  height: auto;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  padding:  .5rem;
+  color: green;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @media screen and (max-width: 480px){
+    top: 100%;
+  }
+}

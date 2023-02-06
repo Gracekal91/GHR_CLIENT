@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "sf-thin";   /*Can be any text*/
+  src: local("SFNSDisplay-Thin"),
+  url("./assets/fonts/SFNSDisplay-Thin.otf") format("truetype");
+}
+@font-face {
+  font-family: "sf-light";   /*Can be any text*/
+  src: local("SFNSDisplay-Light"),
+  url("./assets/fonts/SFNSDisplay-Light.otf") format("truetype");
+}
+
+body {
+  margin: 0;
+  font-family: sf-light, sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

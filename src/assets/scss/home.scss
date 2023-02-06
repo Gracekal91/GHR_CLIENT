@@ -1,0 +1,127 @@
+@font-face {
+  font-family: "sf-light";   /*Can be any text*/
+  src: local("SFNSDisplay-Light"),
+  url("../../assets/fonts/SFNSDisplay-Light.otf") format("truetype");
+}
+
+//Home Hero section
+// TODO This image needs to be dynamic
+.hero_section{
+  background-image: url("../../assets/images/banner_bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 300px;
+}
+
+//Home main section
+
+.home_main_section,
+.home_main_section_2{
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  @media screen and(max-width: 480px){
+   flex-direction: column;
+    width: 90%;
+  }
+}
+
+.home_main_section{
+  margin: -4rem auto 2rem auto;
+}
+
+.home_main_section_2{
+  margin: 0 auto;
+
+}
+
+//Home card
+.home_small_card,
+.home_large_card{
+  min-height: 230px;
+  .card_header{
+    background-color: #033048;
+    color: rgba(255, 255, 255, 0.8);
+    padding: .4rem;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.home_small_card{
+  width: 33%;
+  background: pink;
+  border-radius: .2rem;
+
+  .home_card_btn{
+    margin-left: .7rem;
+    border: none;
+    width: 90%;
+    text-align: left;
+    font-size: 14px;
+    padding: .3rem .2rem .3rem 1.8rem;
+    color: #cecaca;
+    background-color: #033048;
+    position: relative;
+    border-radius: .1rem;
+    cursor: pointer;
+    span{
+      display: inline-block;
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      font-size: .9rem;
+    }
+  }
+  .card_content{
+    display: flex;
+    justify-content: space-between;
+    padding: .4rem;
+    font-size: 14px;
+    div{
+      width: 165px;
+      padding: .2rem;
+      /*margin-top: 1rem;*/
+      h6{
+        line-height: 1.8;
+        margin: 5px;
+        font-size: 12px;
+      }
+      p{
+        margin: 5px;
+        font-size: 12px;
+      }
+      .card_icon{
+        font-size: 2.2rem;
+        line-height: 0;
+      }
+    }
+    .people_profile{
+      width: 40px;
+      height: 40px;
+      background-color: green;
+      border-radius: 50%;
+    }
+  }
+  .leave_container{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  @media screen and(max-width: 480px){
+    width: 100%;
+    margin-bottom: .5rem;
+  }
+}
+
+.home_large_card{
+  width: 66%;
+  height: 200px;
+  background: pink;
+  @media screen and(max-width: 480px){
+    width: 100%;
+    margin-bottom: .5rem;
+  }
+}
