@@ -79,7 +79,7 @@ const OrganizationLogin = () => {
                 <div className="content">
                     <h3>Sign In</h3>
                     <form onSubmit={handleOrgLogin}>
-                        <label>Organization or company name :)</label>
+                        <label>Organization or company name :) -- </label>
                         <div>
                             <span><SlOrganization/></span>
                             <input type="text" placeholder="enter your company"
