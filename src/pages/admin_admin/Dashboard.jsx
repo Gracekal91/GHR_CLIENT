@@ -9,7 +9,7 @@ const Dashboard = () => {
     const [currentTab, setCurrentTab] = useState(0)
     return (
         <>
-            <Header/>
+            <Header isDashboard={true}/>
             <div className="dashboard_container">
                 <LeftPanel setCurrentTab={setCurrentTab} currentTab={currentTab} admin={true}/>
                 {currentTab === 0 && <DashboardMain/>}

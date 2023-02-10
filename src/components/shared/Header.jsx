@@ -7,7 +7,7 @@ const Header = ({isHome, isDashboard}) => {
     const authenticate = localStorage.getItem("isAuthenticated");
     const handleLogout = async () => {
         try {
-            if (authenticate) {
+            if (authenticate === true) {
                 await axios.post('/api/auth/logout');
                 localStorage.clear();
                 window.location.href = '/login'
