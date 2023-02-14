@@ -14,7 +14,7 @@ const OrganizationLogin = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const [genError, setGenError] = useState(null);
-    const BASE_URL = "http://ec2-52-26-182-109.us-west-2.compute.amazonaws.com/";
+    const BASE_URL = "http://ec2-52-26-182-109.us-west-2.compute.amazonaws.com";
 
     useEffect(() => {
         const getData = async () => {
