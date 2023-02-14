@@ -14,11 +14,12 @@ const OrganizationLogin = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
     const [genError, setGenError] = useState(null);
+    const BASE_URL = "http://ec2-52-26-182-109.us-west-2.compute.amazonaws.com/";
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const response = await axios.get('/api/organizations/find_organization');
+                const response = await axios.get(`${BASE_URL}/api/organizations/find_organization`);
                 const data = response.data;
                 setOrganizations(data);
             } catch (e) {
@@ -48,7 +49,7 @@ const OrganizationLogin = () => {
         evt.preventDefault();
         let orgId = JSON.parse(localStorage.getItem('userTypedOrgId'));
         try{
-            const {data} = await axios.post('/api/auth/login', {email, password});
+            const {data} = await axios.post(`${BASE_URL}/api/auth/login`, {email, password});
             const {token, user, authenticate} = data;
 
             localStorage.setItem('organization', JSON.stringify(organization));
