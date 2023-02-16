@@ -50,22 +50,23 @@ const OrganizationLogin = () => {
         let orgId = JSON.parse(localStorage.getItem('userTypedOrgId'));
         try{
             const {data} = await axios.post(`${BASE_URL}/api/auth/login`, {email, password});
-            const {token, user, authenticate} = data;
+            const {token, user} = data;
 
             localStorage.setItem('organization', JSON.stringify(organization));
             localStorage.setItem('user', JSON.stringify(user));
-            localStorage.setItem('isAuthenticated', authenticate);
+            /*localStorage.setItem('isAuthenticated', authenticate);*/
             localStorage.setItem('token', token);
 
             if(user.org_id !== orgId) {
-                console.log('user was not fount in the organization')
+                console.log('user was not found in the organization')
                 return window.location.href = `/login`
             }
-            if(user.user_role === 1) return window.location.href = `/dashboard_super`
-            if(user.user_role === 2) return window.location.href = `/dashboard_admin`
-            if(user.user_role === 3 || user.user_role === 4) return window.location.href = `/home`
+            console.log('Logged in user', user);
+            if(user.role === 1) return window.location.href = `/dashboard_super`
+            if(user.role === 2) return window.location.href = `/dashboard_admin`
+            if(user.role === 3 || user.user_role === 4) return window.location.href = `/home`
 
-          /*  if(token) return window.location.href = `/dashboard_super`*/
+           if(token) return window.location.href = `/dashboard_super`
             window.location.href = `/login`
         }catch(err){
             setGenError(err.response.data)
