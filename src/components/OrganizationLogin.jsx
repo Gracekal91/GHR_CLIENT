@@ -51,6 +51,7 @@ const OrganizationLogin = () => {
         try{
             const {data} = await axios.post(`${BASE_URL}/api/auth/login`, {email, password});
             const {token, user} = data;
+            localStorage.setItem('test', 'hello');
 
             localStorage.setItem('organization', JSON.stringify(organization));
             localStorage.setItem('user', JSON.stringify(user));
