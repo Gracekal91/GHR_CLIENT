@@ -4,14 +4,15 @@ import {RxHamburgerMenu} from "react-icons/rx";
 import axios from 'axios';
 
 const Header = ({isHome, isDashboard}) => {
-    const authenticate = localStorage.getItem("isAuthenticated");
+    const authenticate = localStorage.getItem("token");
+    const BASE_URL = "http://localhost:8000";
     const handleLogout = async () => {
         try {
-            if (authenticate === true) {
-                await axios.post('/api/auth/logout');
+                await axios.post(`${BASE_URL}/api/auth/logout`);
                 localStorage.clear();
+                sessionStorage.setItem('refreshToken', null);
                 window.location.href = '/login'
-            }
+
         } catch (e) {
             console.error("Couldn't log out")
         }

@@ -37,9 +37,9 @@ const CreateUserModal = () => {
     //grab roles
     const DisplayRole = () =>{
         if(!roles) return 'no role';
-        if(loggedInUser.user_role === 1){
+        if(loggedInUser.role === 1){
             return roles.filter(role => role.id === 2);
-        }else if(loggedInUser.user_role === 2){
+        }else if(loggedInUser.role === 2){
             return roles.filter(role => role.id > 2)
         }
     }

@@ -20,7 +20,7 @@ const TableList = ({organizations, admins, org, administrators, empl, employees}
                             <tbody>
                             {
                                 administrators
-                                    .filter(item => item.user_role === 2)
+                                    .filter(item => item.role === 2)
                                     .map((administrator, index) => {
                                     return <AdminContent
                                         administrator={administrator}
