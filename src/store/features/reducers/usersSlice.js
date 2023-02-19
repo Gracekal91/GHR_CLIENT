@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
+const BASE_URL = "http://ec2-52-26-182-109.us-west-2.compute.amazonaws.com";
 
 const config = {
     headers:{
@@ -11,18 +12,18 @@ export const getUsers = createAsyncThunk(
     "users/getUsers",
     async (object, {getState, rejectWithValue}) => {
     try {
-        const response = await axios.get('/api/users/get_users', config);
+        const response = await axios.get(`${BASE_URL}/api/users/get_users`, config);
         const data= response.data;
         return data;
     } catch (error) {
         if(error.response.status === 403){
             const refreshToken = sessionStorage.getItem('refreshToken');
-            console.log('from session', refreshToken)
-            if(!refreshToken) return console.log('Error -- forbidden please login to continue')
+            console.log('from session***********', refreshToken)
+            if(!refreshToken) return window.location.href = `/login`
             //get a new accessToken
-            const newToken = await axios.get(`http://localhost:8000/api/refresh/refresh_token/${refreshToken}`);
+            const newToken = await axios.get(`${BASE_URL}/api/refresh/refresh_token/${refreshToken}`);
             config.headers.Authorization = `Bearer ${newToken.data.token}`;
-            const response = await axios.get('/api/users/get_users', config);
+            const response = await axios.get(`${BASE_URL}/api/users/get_users`, config);
             const data= response.data;
             return data;
         }

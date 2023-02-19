@@ -17,6 +17,7 @@ const OrganizationLogin = () => {
     const BASE_URL = "http://ec2-52-26-182-109.us-west-2.compute.amazonaws.com";
 
 
+
     useEffect(() => {
         const getData = async () => {
             try {
@@ -52,7 +53,7 @@ const OrganizationLogin = () => {
         try{
             const {data} = await axios.post(`${BASE_URL}/api/auth/login`, {email, password});
             const {token, user, refreshToken} = data;
-
+            console.log('----------------------------', refreshToken)
             sessionStorage.setItem('refreshToken', refreshToken);
             localStorage.setItem('organization', JSON.stringify(organization));
             localStorage.setItem('user', JSON.stringify(user));
