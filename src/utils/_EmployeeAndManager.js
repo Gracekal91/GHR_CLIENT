@@ -7,7 +7,6 @@ const _EmployeeAndManager = (props) =>{
     const checkUserToken = () =>{
         const userToken = localStorage.getItem('token')
         const user = JSON.parse(localStorage.getItem('user'))
-        console.log(user.user_role);
         if(!userToken || userToken === 'undefined' || user.user_role < 3){
             setIsLoggedIn(false);
             return navigate('/login');
@@ -26,7 +25,6 @@ const _EmployeeAndManager = (props) =>{
             }
         </>
     )
-
 }
 
 export default _EmployeeAndManager;

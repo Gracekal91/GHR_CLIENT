@@ -15,6 +15,17 @@ export const getUsers = createAsyncThunk(
         const data= response.data;
         return data;
     } catch (error) {
+        if(error.response.status === 403){
+            const refreshToken = sessionStorage.getItem('refreshToken');
+            console.log('from session', refreshToken)
+            if(!refreshToken) return console.log('Error -- forbidden please login to continue')
+            //get a new accessToken
+            const newToken = await axios.get(`http://localhost:8000/api/refresh/refresh_token/${refreshToken}`);
+            config.headers.Authorization = `Bearer ${newToken.data.token}`;
+            const response = await axios.get('/api/users/get_users', config);
+            const data= response.data;
+            return data;
+        }
         rejectWithValue(error.response.data)
     }
 });

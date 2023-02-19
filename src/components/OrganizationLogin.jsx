@@ -16,6 +16,7 @@ const OrganizationLogin = () => {
     const [genError, setGenError] = useState(null);
     const BASE_URL = "http://ec2-52-26-182-109.us-west-2.compute.amazonaws.com";
 
+
     useEffect(() => {
         const getData = async () => {
             try {
@@ -50,12 +51,11 @@ const OrganizationLogin = () => {
         let orgId = JSON.parse(localStorage.getItem('userTypedOrgId'));
         try{
             const {data} = await axios.post(`${BASE_URL}/api/auth/login`, {email, password});
-            const {token, user} = data;
-            localStorage.setItem('test', 'hello');
+            const {token, user, refreshToken} = data;
 
+            sessionStorage.setItem('refreshToken', refreshToken);
             localStorage.setItem('organization', JSON.stringify(organization));
             localStorage.setItem('user', JSON.stringify(user));
-            /*localStorage.setItem('isAuthenticated', authenticate);*/
             localStorage.setItem('token', token);
 
             if(user.org_id !== orgId) {

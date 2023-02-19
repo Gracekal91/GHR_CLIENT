@@ -7,8 +7,8 @@ const AdminAdmin = (props) =>{
     const checkUserToken = () =>{
         const userToken = localStorage.getItem('token')
         const user = JSON.parse(localStorage.getItem('user'))
-        console.log(user.user_role);
-        if(!userToken || userToken === 'undefined' || user.user_role !== 2){
+        console.log(user.role);
+        if(!userToken || userToken === 'undefined' || user.role !== 2){
             setIsLoggedIn(false);
             return navigate('/login');
         }
